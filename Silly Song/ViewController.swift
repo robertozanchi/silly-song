@@ -37,33 +37,33 @@ class ViewController: UIViewController {
         
     }
 
-}
-
-func shortNameForName(name: String) -> String {
-    let lowercaseName = name.lowercaseString
-    let vowelSet = NSCharacterSet(charactersInString: "aeiou")
-    
-    if let firstVowelRange = lowercaseName.stringByFoldingWithOptions(.DiacriticInsensitiveSearch, locale: nil).rangeOfCharacterFromSet(vowelSet) {
-        return lowercaseName.substringFromIndex(firstVowelRange.startIndex)
+    func shortNameForName(name: String) -> String {
+        let lowercaseName = name.lowercaseString
+        let vowelSet = NSCharacterSet(charactersInString: "aeiou")
+        
+        if let firstVowelRange = lowercaseName.stringByFoldingWithOptions(.DiacriticInsensitiveSearch, locale: nil).rangeOfCharacterFromSet(vowelSet) {
+            return lowercaseName.substringFromIndex(firstVowelRange.startIndex)
+        }
+        
+        return lowercaseName
     }
     
-    return lowercaseName
-}
-
-let bananaFanaTemplate = [
-    "<FULL_NAME>, <FULL_NAME>, Bo B<SHORT_NAME>",
-    "Banana Fana Fo F<SHORT_NAME>",
-    "Me My Mo M<SHORT_NAME>",
-    "<FULL_NAME>"].joinWithSeparator("\n")
-
-func lyricsForName(lyricsTemplate: String, fullName: String) -> String {
-    let shortName = shortNameForName(fullName)
+    let bananaFanaTemplate = [
+        "<FULL_NAME>, <FULL_NAME>, Bo B<SHORT_NAME>",
+        "Banana Fana Fo F<SHORT_NAME>",
+        "Me My Mo M<SHORT_NAME>",
+        "<FULL_NAME>"].joinWithSeparator("\n")
     
-    let lyrics = lyricsTemplate
-        .stringByReplacingOccurrencesOfString("<FULL_NAME>", withString: fullName)
-        .stringByReplacingOccurrencesOfString("<SHORT_NAME>", withString: shortName)
+    func lyricsForName(lyricsTemplate: String, fullName: String) -> String {
+        let shortName = shortNameForName(fullName)
+        
+        let lyrics = lyricsTemplate
+            .stringByReplacingOccurrencesOfString("<FULL_NAME>", withString: fullName)
+            .stringByReplacingOccurrencesOfString("<SHORT_NAME>", withString: shortName)
+        
+        return lyrics
+    }
     
-    return lyrics
 }
 
 // MARK: - UITextFieldDelegate
