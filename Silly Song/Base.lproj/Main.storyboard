@@ -36,7 +36,7 @@
                                 <rect key="frame" x="20" y="203" width="560" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
                                     <action selector="displayLyrics:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="rDQ-dh-bmx"/>
                                     <action selector="reset:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Apm-F6-aqE"/>
