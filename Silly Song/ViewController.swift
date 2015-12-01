@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func displayLyrics(sender: AnyObject) {
-        if (nameField.text != nil) {
+        if (nameField.text != "") {
             lyricsView.text = lyricsForName(bananaFanaTemplate, fullName: nameField.text!)
         }
         
